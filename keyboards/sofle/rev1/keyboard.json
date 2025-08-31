@@ -1,5 +1,6 @@
 {
-    "manufacturer": "JosefAdamcik",
+    "manufacturer": "Keyhive",
+    "keyboard_name": "Sharon",
     "url": "https://github.com/josefadamcik/SofleKeyboard",
     "maintainer": "Josef Adamcik <josef.adamcik@gmail.com>",
     "development_board": "promicro",
@@ -8,7 +9,7 @@
         "device_version": "0.0.1"
     },
     "matrix_pins": {
-        "cols": ["F6", "F7", "B1", "B3", "B2", "B6"],
+        "cols": ["B6", "B2", "B3", "B1", "F7", "F6"],
         "rows": ["C6", "D7", "E6", "B4", "B5"]
     },
     "encoder": {
@@ -17,6 +18,12 @@
         ]
     },
     "split": {
+        "matrix_pins": {
+            "right": {
+                "cols": ["F6", "F7", "B1", "B3", "B2", "B6"],
+                "rows": ["C6", "D7", "E6", "B4", "B5"]
+            }
+        },
         "encoder": {
             "right": {
                 "rotary": [
