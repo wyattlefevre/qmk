@@ -212,3 +212,22 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 }
+
+#ifdef OLED_ENABLE
+bool oled_task_user(void) {
+    if (is_keyboard_master()) {
+        // Master side - show layer info
+        oled_write_P(PSTR("Layer: "), false);
+        switch (get_highest_layer(layer_state)) {
+            case 0: oled_write_P(PSTR("QWERTY"), false); break;
+            case 1: oled_write_P(PSTR("LOWER"), false); break;
+            case 2: oled_write_P(PSTR("RAISE"), false); break;
+            default: oled_write_P(PSTR("UNKNOWN"), false);
+        }
+    } else {
+        // Slave side - show a simple message
+        oled_write_P(PSTR("Sofle\nKeyboard"), false);
+    }
+    return false;
+}
+#endif
